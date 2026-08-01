@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ff6f91" />
+  <title>Happy National Girlfriend Day</title>
+
+  <style>
+    :root {
+      --pink: #ff6f91;
+      --rose: #ff8fab;
+      --light-pink: #ffe5ec;
+      --cream: #fff9f5;
+      --text: #442c35;
+      --muted: #7f626d;
+      --card: rgba(255,255,255,.78);
+      --shadow: 0 18px 45px rgba(117, 54, 78, .16);
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255,143,171,.28), transparent 30%),
+        radial-gradient(circle at 85% 20%, rgba(255,183,197,.35), transparent 25%),
+        linear-gradient(180deg, var(--cream), #fff0f4 55%, #fff8f8);
+      overflow-x: hidden;
+    }
+
+    .floating-heart {
+      position: fixed;
+      bottom: -40px;
+      pointer-events: none;
+      opacity: .22;
+      z-index: 0;
+      animation: floatUp linear forwards;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0) rotate(0deg); }
+      to { transform: translateY(-115vh) rotate(28deg); opacity: 0; }
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px min(7vw, 90px);
+      background: rgba(255, 249, 245, .72);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,111,145,.12);
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: .95rem;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      width: min(1120px, 90vw);
+      margin: 0 auto;
+      padding: 82px 0;
+    }
+
+    .hero {
+      min-height: 84vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding-top: 70px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 9px 15px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(255,111,145,.22);
+      color: #a34263;
+      font-weight: 700;
+      font-size: .86rem;
+      box-shadow: 0 8px 25px rgba(117,54,78,.08);
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 24px auto 18px;
+      font-size: clamp(3rem, 8vw, 6.8rem);
+      line-height: .96;
+      letter-spacing: -.065em;
+    }
+
+    .highlight {
+      color: var(--pink);
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: clamp(1rem, 2.2vw, 1.25rem);
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-size: 1rem;
+      font-weight: 750;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .primary {
+      color: white;
+      background: linear-gradient(135deg, var(--pink), #ff477e);
+      box-shadow: 0 14px 28px rgba(255,71,126,.25);
+    }
+
+    .secondary {
+      color: var(--text);
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(255,111,145,.22);
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      letter-spacing: -.04em;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 670px;
+      margin: 0 auto 38px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .photo-card {
+      min-height: 360px;
+      border-radius: 28px;
+      overflow: hidden;
+      background: linear-gradient(145deg, #ffd6e0, #fff);
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.035);
+    }
+
+    .photo-label {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(10px);
+      font-weight: 700;
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .reason {
+      background: var(--card);
+      padding: 24px;
+      border: 1px solid rgba(255,111,145,.13);
+      border-radius: 22px;
+      box-shadow: 0 12px 32px rgba(117,54,78,.08);
+      line-height: 1.65;
+    }
+
+    .reason-number {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      margin-bottom: 12px;
+      background: var(--light-pink);
+      color: #b43b65;
+      font-weight: 850;
+    }
+
+    .letter {
+      max-width: 820px;
+      margin: auto;
+      padding: clamp(26px, 5vw, 54px);
+      border-radius: 30px;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(255,111,145,.18);
+      box-shadow: var(--shadow);
+      line-height: 1.95;
+      font-size: 1.08rem;
+    }
+
+    .signature {
+      margin-top: 28px;
+      font-weight: 800;
+      color: var(--pink);
+      font-size: 1.2rem;
+    }
+
+    .surprise {
+      text-align: center;
+    }
+
+    .hidden-message {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height .8s ease, opacity .5s ease, margin .5s ease;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hidden-message.show {
+      max-height: 300px;
+      opacity: 1;
+      margin-top: 28px;
+    }
+
+    .hidden-message-inner {
+      padding: 26px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.8);
+      box-shadow: var(--shadow);
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 34px 20px 48px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 760px) {
+      nav .links { display: none; }
+      section { padding: 62px 0; }
+      .photo-grid, .reasons-grid { grid-template-columns: 1fr; }
+      .photo-card, .photo-card img { min-height: 410px; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="brand">For <span id="navName">Her</span> ♡</div>
+    <div class="links">
+      <a href="#memories">Memories</a>
+      <a href="#reasons">Why I Love You</a>
+      <a href="#letter">My Letter</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="eyebrow">A little website made just for you ♡</span>
+        <h1>Happy National Girlfriend Day, <span class="highlight" id="heroName">Beautiful</span>.</h1>
+        <p id="heroMessage">
+          Thank you for bringing so much love, laughter, and happiness into my life.
+          I made this little corner of the internet to remind you how special you are to me.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="button primary" href="#letter">Read my letter</a>
+          <a class="button secondary" id="songButton" href="#" target="_blank" rel="noopener">Our song ♪</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="memories">
+      <h2 class="section-title">Some of my favorite memories</h2>
+      <p class="section-subtitle">
+        Replace these photos and captions with moments that mean something to both of you.
+      </p>
+      <div class="photo-grid" id="photoGrid"></div>
+    </section>
+
+    <section id="reasons">
+      <h2 class="section-title">A few reasons I love you</h2>
+      <p class="section-subtitle">
+        There are more reasons than one page could ever hold, but these are a good start.
+      </p>
+      <div class="reasons-grid" id="reasonsGrid"></div>
+    </section>
+
+    <section id="letter">
+      <h2 class="section-title">A letter for you</h2>
+      <p class="section-subtitle">The part I hope you remember most.</p>
+
+      <div class="letter">
+        <div id="letterText"></div>
+        <div class="signature">Love, <span id="yourName">Me</span> ♡</div>
+      </div>
+    </section>
+
+    <section class="surprise">
+      <h2 class="section-title">One last thing…</h2>
+      <p class="section-subtitle">Press the button.</p>
+      <button class="button primary" id="surpriseButton">Open your surprise ♡</button>
+
+      <div class="hidden-message" id="hiddenMessage">
+        <div class="hidden-message-inner" id="surpriseText"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Made with love by <span id="footerName">Me</span> ♡
+  </footer>
+
+  <script>
+    /*
+      ===============================================================
+      PERSONALIZE EVERYTHING HERE
+      ===============================================================
+    */
+    const website = {
+      girlfriendName: "Her Name",
+      yourName: "Your Name",
+
+      heroMessage:
+        "Thank you for bringing so much love, laughter, and happiness into my life. I made this little corner of the internet to remind you how special you are to me.",
+
+      songLink: "https://open.spotify.com/",
+
+      photos: [
+        {
+          src: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=85",
+          caption: "One of my favorite days with you"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1200&q=85",
+          caption: "The moments I never want to forget"
+        },
+        {
+          src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1200&q=85",
+          caption: "Anywhere feels special with you"
+        }
+      ],
+
+      reasons: [
+        "You make even ordinary days feel meaningful.",
+        "Your smile can instantly make my day better.",
+        "I love the way we can laugh and be ourselves together.",
+        "You inspire me to be more loving, patient, and thoughtful.",
+        "You are beautiful, inside and out.",
+        "No matter how far apart we are, you are always close to my heart."
+      ],
+
+      letterParagraphs: [
+        "My love,",
+        "I wanted to make something that was only for you—something you could look back on whenever you need a reminder of how much you mean to me.",
+        "Being with you has given me so many moments I treasure. I love your personality, your heart, your smile, and all the little things that make you uniquely you.",
+        "I know I may not always find the perfect words, but I hope you always know this: I choose you, I appreciate you, and I am incredibly grateful that you are in my life.",
+        "Happy National Girlfriend Day to the most amazing girlfriend I could ask for."
+      ],
+
+      surpriseMessage:
+        "You are loved more than this website could ever explain. Thank you for being you. ♡"
+    };
+
+    /*
+      You normally do not need to change anything below this line.
+    */
+
+    document.title = `For ${website.girlfriendName} ♡`;
+    document.getElementById("navName").textContent = website.girlfriendName;
+    document.getElementById("heroName").textContent = website.girlfriendName;
+    document.getElementById("heroMessage").textContent = website.heroMessage;
+    document.getElementById("yourName").textContent = website.yourName;
+    document.getElementById("footerName").textContent = website.yourName;
+    document.getElementById("songButton").href = website.songLink;
+    document.getElementById("surpriseText").textContent = website.surpriseMessage;
+
+    const photoGrid = document.getElementById("photoGrid");
+    website.photos.forEach(photo => {
+      const card = document.createElement("article");
+      card.className = "photo-card";
+      card.innerHTML = `
+        <img src="${photo.src}" alt="${photo.caption}">
+        <div class="photo-label">${photo.caption}</div>
+      `;
+      photoGrid.appendChild(card);
+    });
+
+    const reasonsGrid = document.getElementById("reasonsGrid");
+    website.reasons.forEach((reason, index) => {
+      const card = document.createElement("article");
+      card.className = "reason";
+      card.innerHTML = `
+        <div class="reason-number">${index + 1}</div>
+        <div>${reason}</div>
+      `;
+      reasonsGrid.appendChild(card);
+    });
+
+    const letterText = document.getElementById("letterText");
+    website.letterParagraphs.forEach(paragraph => {
+      const p = document.createElement("p");
+      p.textContent = paragraph;
+      letterText.appendChild(p);
+    });
+
+    document.getElementById("surpriseButton").addEventListener("click", () => {
+      document.getElementById("hiddenMessage").classList.add("show");
+
+      for (let i = 0; i < 28; i++) {
+        setTimeout(createHeart, i * 65);
+      }
+    });
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "floating-heart";
+      heart.textContent = Math.random() > .5 ? "♡" : "♥";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (18 + Math.random() * 34) + "px";
+      heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }
+
+    setInterval(createHeart, 1300);
+  </script>
+</body>
+</html>
